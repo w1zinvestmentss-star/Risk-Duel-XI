@@ -52,7 +52,7 @@ const questions = [
     ],
   },
   {
-    question: "A process service has shown up to the hospital, what should you do?",
+    question: "A process server (Someone with a Legal Claim/Lawsuit) has shown up to the hospital, what should you do?",
     answers: [
       { text: "Do not accept the package", points: 30 },
       { text: "Contact Risk Management", points: 25 },
