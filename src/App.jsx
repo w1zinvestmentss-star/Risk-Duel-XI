@@ -675,9 +675,9 @@ export default function App() {
     <div
       className="h-screen w-full flex flex-col items-center font-sans overflow-hidden"
       style={{
-        background: gameMode === "menu" ? `url(${menuBg}) center/cover no-repeat` : 
-                    gameMode === "duel" ? `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${duelBg}') center/cover no-repeat` : 
-                    woodTexture,
+        background: gameMode === "menu" ? `url(${menuBg}) center/cover no-repeat` :
+          gameMode === "duel" ? `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${duelBg}') center/cover no-repeat` :
+            woodTexture,
         color: "#fff",
       }}
     >
