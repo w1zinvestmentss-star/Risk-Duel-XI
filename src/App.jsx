@@ -33,7 +33,7 @@ const questions = [
     ],
   },
   {
-    question: "Name examples of popular breaches",
+    question: "Name examples of popular privacy breaches",
     answers: [
       { text: "Discharge documents given to the wrong patient", points: 30 },
       { text: "Misdirected Emails and Faxes", points: 25 },
@@ -114,7 +114,7 @@ const fastDucketsQuestions = [
   {
     question: "What's are some ways to report a breach?",
     answers: [
-      { text: "Contact your Manager", points: 50, keywords: ["Manager", "Supervisor","jpeg"] },
+      { text: "Contact your Manager", points: 50, keywords: ["Manager", "Supervisor", "jpeg"] },
       { text: "Contact the Privacy Department", points: 30, keywords: ["Privacy Department", "Privacy Office", "Call Privacy"] },
       { text: "Complete a SAFETY Report", points: 20, keywords: ["Safety Report", "SAFETY"] },
     ],
@@ -122,10 +122,10 @@ const fastDucketsQuestions = [
   {
     question: "All breaches are wrong. What are some significant/severe types of breaches discussed?",
     answers: [
-      { text: "Collecting/Stealing and Selling Information to a Third-Paty", points: 35, keywords: ["Selling", "Sell","Selling to a third-party"] },
-      { text: "Snooping on a patient/Accessing a patient outside of a circle of care", points: 30, keywords: ["Snoop","Snooping","Accessing information outside of circle of care"] },
-      { text: "Gossiping about a patient", points: 20, keywords: ["Gossip","Gossiping","Talking about a patient outside of Circle of Care"] },
-      { text: "Posting a patient to Social Media", points: 15, keywords: ["Social Media","Instagram","Facebook","Whatsapp"] },
+      { text: "Collecting/Stealing and Selling Information to a Third-Paty", points: 35, keywords: ["Selling", "Sell", "Selling to a third-party"] },
+      { text: "Snooping on a patient/Accessing a patient outside of a circle of care", points: 30, keywords: ["Snoop", "Snooping", "Accessing information outside of circle of care"] },
+      { text: "Gossiping about a patient", points: 20, keywords: ["Gossip", "Gossiping", "Talking about a patient outside of Circle of Care"] },
+      { text: "Posting a patient to Social Media", points: 15, keywords: ["Social Media", "Instagram", "Facebook", "Whatsapp"] },
     ],
   },
   {
@@ -133,15 +133,15 @@ const fastDucketsQuestions = [
     answers: [
       { text: "Contact the Health Records department", points: 40, keywords: ["Health Records", "Health Records Request", "Request Records"] },
       { text: "Signup for MyChart", points: 35, keywords: ["MyChart"] },
-      { text: "Do not access the records outside of the circle of care", points: 25, keywords: ["Do not do it","Do nothing"] },
+      { text: "Do not access the records outside of the circle of care", points: 25, keywords: ["Do not do it", "Do nothing"] },
     ],
   },
   {
     question: "Other than Patient care, what is another permitted use of PHI under PHIPA?",
     answers: [
       { text: "Quality Improvement/Risk Management", points: 30, keywords: ["Quality", "Risk Management"] },
-      { text: "Research", points: 25, keywords: ["Research","REB"] },
-      { text: "Eduation", points: 20, keywords: ["Education","Teaching"] },
+      { text: "Research", points: 25, keywords: ["Research", "REB"] },
+      { text: "Eduation", points: 20, keywords: ["Education", "Teaching"] },
       { text: "Patient Surveys", points: 15, keywords: ["Surveys"] },
       { text: "Statistics", points: 10, keywords: ["Stats"] },
     ],
@@ -216,7 +216,7 @@ const GameMenu = ({ onStartDuel, onStartFastDuckets }) => (
         transition={{ duration: 0.6 }}
         style={{ color: "#FFE69A", textShadow: "0 0 12px #facc15, 0 0 28px #facc15" }}
       >
-        Privacy Duel
+        Risk Duel
       </motion.h1>
       <p className="text-lg text-indigo-100 mb-8 readable-text">Developed by Jeffrey Munroe</p>
       <div className="flex flex-col md:flex-row gap-4 justify-center">
@@ -312,7 +312,7 @@ const PrivacyDuelGame = ({ onGoToMenu }) => {
       className="relative z-20 w-full flex flex-col items-center px-4 py-8"
     >
       <h1 className="text-4xl md:text-5xl font-extrabold mb-3 pixel-title readable-text" style={{ color: "#FFE69A" }}>
-        ⚔️ Privacy Duel
+        ⚔️ Risk Duel
       </h1>
       <motion.h2
         key={round}
@@ -454,7 +454,7 @@ const FastDuckets = ({ onGoToMenu }) => {
       setPhase("REVEAL");
     }
   };
-  
+
   // ====== MODIFIED LOGIC: Stricter Fuzzy Matching ======
   const handleReveal = (index) => {
     if (revealedData[index]) return;
@@ -473,44 +473,44 @@ const FastDuckets = ({ onGoToMenu }) => {
         let matchFound = false;
 
         for (const keyword of officialAnswer.keywords) {
-            const cleanKey = keyword.toLowerCase().trim();
+          const cleanKey = keyword.toLowerCase().trim();
 
-            // 1. EXACT or SUBSTRING match (The most reliable)
-            if (userAnswer.includes(cleanKey)) {
-                matchFound = true;
-                break;
+          // 1. EXACT or SUBSTRING match (The most reliable)
+          if (userAnswer.includes(cleanKey)) {
+            matchFound = true;
+            break;
+          }
+
+          // 2. STRICTER Fuzzy Match
+          // Only fuzzy match if the keyword is 5+ characters long.
+          if (cleanKey.length < 5) continue;
+
+          for (const token of userTokens) {
+            // Must be roughly the same length
+            if (Math.abs(token.length - cleanKey.length) > 2) continue;
+
+            const dist = getLevenshteinDistance(token, cleanKey);
+
+            // Allow 1 error for medium words (5-7 chars)
+            // Allow 2 errors for long words (8+ chars)
+            const allowedErrors = cleanKey.length >= 8 ? 2 : 1;
+
+            if (dist <= allowedErrors) {
+              matchFound = true;
+              break;
             }
-
-            // 2. STRICTER Fuzzy Match
-            // Only fuzzy match if the keyword is 5+ characters long.
-            if (cleanKey.length < 5) continue; 
-
-            for (const token of userTokens) {
-                // Must be roughly the same length
-                if (Math.abs(token.length - cleanKey.length) > 2) continue;
-
-                const dist = getLevenshteinDistance(token, cleanKey);
-                
-                // Allow 1 error for medium words (5-7 chars)
-                // Allow 2 errors for long words (8+ chars)
-                const allowedErrors = cleanKey.length >= 8 ? 2 : 1;
-                
-                if (dist <= allowedErrors) {
-                    matchFound = true;
-                    break;
-                }
-            }
-            if (matchFound) break; 
+          }
+          if (matchFound) break;
         }
 
         if (matchFound) {
-            if (officialAnswer.points > bestMatch.points) {
-                bestMatch = officialAnswer;
-            }
+          if (officialAnswer.points > bestMatch.points) {
+            bestMatch = officialAnswer;
+          }
         }
       }
     }
-    
+
     setTotalScore((score) => score + bestMatch.points);
     const newRevealedData = [...revealedData];
     newRevealedData[index] = { points: bestMatch.points };
@@ -679,12 +679,12 @@ export default function App() {
       }}
     >
       <GlobalStyles />
-      
+
       {/* Scrollable Container with centered content that allows scrolling when needed */}
       <div className="w-full h-full overflow-y-auto flex flex-col items-center p-4 md:p-8">
-          <div className="w-full my-auto flex flex-col items-center">
-              <AnimatePresence mode="wait">{renderGameMode()}</AnimatePresence>
-          </div>
+        <div className="w-full my-auto flex flex-col items-center">
+          <AnimatePresence mode="wait">{renderGameMode()}</AnimatePresence>
+        </div>
       </div>
     </div>
   );
