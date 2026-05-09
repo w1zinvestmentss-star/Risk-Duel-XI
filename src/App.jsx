@@ -14,49 +14,12 @@ const questions = [
     ],
   },
   {
-    question: "Name Examples of Breaches Discussed Today",
-    answers: [
-      { text: "Discharge documents given to the wrong patient", points: 30 },
-      { text: "Misdirected Emails and Faxes", points: 25 },
-      { text: "Posting Personal Health Information to Social Media Sites", points: 20 },
-      { text: "Accessing a Family Member's, Co-worker, or other patient outside of the circle of care", points: 15 },
-      { text: "Throwing PHI into the garbage and not the Shred-it Bin", points: 10 },
-    ],
-  },
-  {
-    question: "You have been notified by a patient that they received the discharge records belonging to another patient. What are some steps to take?",
-    answers: [
-      { text: "Apologize!", points: 30 },
-      { text: "Ask the patient to return the records that they received in error", points: 25 },
-      { text: "Arrange the for them to receive the records they need", points: 20 },
-      { text: "Notify the patients impacted by the breach", points: 15 },
-      { text: "Appropriately Destroy records given in error/ensure the other patient has the correct records", points: 10 },
-    ],
-  },
-  {
     question: "Where can Emergency Preparedness Information be found?",
     answers: [
       { text: "SHN's public facing website", points: 30 },
       { text: "SharePoint", points: 25 },
       { text: "Government of Canada, Public Safety website", points: 20 },
       { text: "Emergency Management Ontario website", points: 15 },
-    ],
-  },
-  {
-    question: "How can you call a code?",
-    answers: [
-      { text: "5555", points: 30 },
-      { text: "Using the prefix Centenary 6, 5555", points: 25 },
-      { text: "Using the prefix Birchmount 7,5555", points: 20 },
-      { text: "Using the prefix General 8,5555", points: 15 },
-    ],
-  },
-  {
-    question: "How can you do Emergency Preparedness training?",
-    answers: [
-      { text: "Code of the month huddles", points: 30 },
-      { text: "Module on Workday", points: 25 },
-      { text: "Participating in exercises", points: 20 },
     ],
   },
   {
@@ -70,12 +33,49 @@ const questions = [
     ],
   },
   {
+    question: "Name examples of popular breaches",
+    answers: [
+      { text: "Discharge documents given to the wrong patient", points: 30 },
+      { text: "Misdirected Emails and Faxes", points: 25 },
+      { text: "Posting Personal Health Information to Social Media Sites", points: 20 },
+      { text: "Accessing a Family Member's, Co-worker, or other patient outside of the circle of care", points: 15 },
+      { text: "Throwing PHI into the garbage and not the Shred-it Bin", points: 10 },
+    ],
+  },
+  {
+    question: "How can you call a code?",
+    answers: [
+      { text: "5555", points: 30 },
+      { text: "Using the prefix Centenary 6, 5555", points: 25 },
+      { text: "Using the prefix Birchmount 7,5555", points: 20 },
+      { text: "Using the prefix General 8,5555", points: 15 },
+    ],
+  },
+  {
     question: "A process service has shown up to the hospital, what should you do?",
     answers: [
       { text: "Do not accept the package", points: 30 },
       { text: "Contact Risk Management", points: 25 },
       { text: "Provide Risk Management contact to the process server", points: 20 },
       { text: "Contact your manager for awareness", points: 15 },
+    ],
+  },
+  {
+    question: "You have been notified by a patient that they received the discharge records belonging to another patient. What are some steps to take?",
+    answers: [
+      { text: "Apologize!", points: 30 },
+      { text: "Ask the patient to return the records that they received in error", points: 25 },
+      { text: "Arrange the for them to receive the records they need", points: 20 },
+      { text: "Notify the patients impacted by the breach", points: 15 },
+      { text: "Appropriately Destroy records given in error/ensure the other patient has the correct records", points: 10 },
+    ],
+  },
+  {
+    question: "How can you do Emergency Preparedness training?",
+    answers: [
+      { text: "Code of the month huddles", points: 30 },
+      { text: "Module on Workday", points: 25 },
+      { text: "Participating in exercises", points: 20 },
     ],
   },
   {
