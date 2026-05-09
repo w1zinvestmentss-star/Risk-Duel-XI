@@ -151,6 +151,7 @@ const fastDucketsQuestions = [
 
 /* ====== assets ====== */
 const menuBg = "https://raw.githubusercontent.com/w1zinvestmentss-star/privacy-duel-assets/main/Risk-duel-title-screen.png";
+const duelBg = "https://raw.githubusercontent.com/w1zinvestmentss-star/privacy-duel-assets/main/Gameboard%20background.png";
 const woodTexture = "linear-gradient(180deg, #3b2f2f 0%, #1f1414 100%)";
 
 /* ====== STYLES - Placed here for simplicity ====== */
@@ -674,7 +675,9 @@ export default function App() {
     <div
       className="h-screen w-full flex flex-col items-center font-sans overflow-hidden"
       style={{
-        background: gameMode === "menu" ? `url(${menuBg}) center/cover no-repeat` : woodTexture,
+        background: gameMode === "menu" ? `url(${menuBg}) center/cover no-repeat` : 
+                    gameMode === "duel" ? `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${duelBg}') center/cover no-repeat` : 
+                    woodTexture,
         color: "#fff",
       }}
     >
