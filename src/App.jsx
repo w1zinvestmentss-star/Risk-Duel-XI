@@ -59,6 +59,45 @@ const questions = [
       { text: "Participating in exercises", points: 20 },
     ],
   },
+  {
+    question: "If something unsafe or almost unsafe happens on your shift, what should you do?",
+    answers: [
+      { text: "Make the situation safe immediately", points: 30 },
+      { text: "Notify your leader or charge nurse", points: 25 },
+      { text: "Submit a S.A.F.E.T.Y. report", points: 20 },
+      { text: "Document appropriately in the patient chart (as applicable)", points: 15 },
+      { text: "Speak up to your team", points: 10 },
+    ],
+  },
+  {
+    question: "A process service has shown up to the hospital, what should you do?",
+    answers: [
+      { text: "Do not accept the package", points: 30 },
+      { text: "Contact Risk Management", points: 25 },
+      { text: "Provide Risk Management contact to the process server", points: 20 },
+      { text: "Contact your manager for awareness", points: 15 },
+    ],
+  },
+  {
+    question: "Who should you notify if an incident or near miss happens?",
+    answers: [
+      { text: "Charge nurse", points: 30 },
+      { text: "Unit manager", points: 25 },
+      { text: "Clinical practice leader", points: 20 },
+      { text: "Supervisor/leader on duty", points: 15 },
+      { text: "Relevant team members involved in the event", points: 10 },
+    ],
+  },
+  {
+    question: "What are examples of a ‘near miss’?",
+    answers: [
+      { text: "Medication error caught before administration", points: 30 },
+      { text: "Patient almost falls but is supported in time", points: 25 },
+      { text: "Equipment issue identified before use", points: 20 },
+      { text: "Incorrect order noticed and corrected", points: 15 },
+      { text: "Documentation error caught before impact", points: 10 },
+    ],
+  },
 ];
 
 // ====== MODIFIED: Questions for Fast Duckets with new `keywords` array ======
