@@ -33,6 +33,32 @@ const questions = [
       { text: "Appropriately Destroy records given in error/ensure the other patient has the correct records", points: 10 },
     ],
   },
+  {
+    question: "Where can Emergency Preparedness Information be found?",
+    answers: [
+      { text: "SHN's public facing website", points: 30 },
+      { text: "SharePoint", points: 25 },
+      { text: "Government of Canada, Public Safety website", points: 20 },
+      { text: "Emergency Management Ontario website", points: 15 },
+    ],
+  },
+  {
+    question: "How can you call a code?",
+    answers: [
+      { text: "5555", points: 30 },
+      { text: "Using the prefix Centenary 6, 5555", points: 25 },
+      { text: "Using the prefix Birchmount 7,5555", points: 20 },
+      { text: "Using the prefix General 8,5555", points: 15 },
+    ],
+  },
+  {
+    question: "How can you do Emergency Preparedness training?",
+    answers: [
+      { text: "Code of the month huddles", points: 30 },
+      { text: "Module on Workday", points: 25 },
+      { text: "Participating in exercises", points: 20 },
+    ],
+  },
 ];
 
 // ====== MODIFIED: Questions for Fast Duckets with new `keywords` array ======
