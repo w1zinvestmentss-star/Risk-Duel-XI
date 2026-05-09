@@ -150,7 +150,7 @@ const fastDucketsQuestions = [
 
 
 /* ====== assets ====== */
-const menuBg = "https://raw.githubusercontent.com/w1zinvestmentss-star/privacy-duel-assets/refs/heads/main/privacy_duel_bg_optimized.png";
+const menuBg = "https://raw.githubusercontent.com/w1zinvestmentss-star/privacy-duel-assets/main/Risk-duel-title-screen.png";
 const woodTexture = "linear-gradient(180deg, #3b2f2f 0%, #1f1414 100%)";
 
 /* ====== STYLES - Placed here for simplicity ====== */
