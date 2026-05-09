@@ -292,6 +292,14 @@ const PrivacyDuelGame = ({ onGoToMenu }) => {
     setStealMode(false);
   }
 
+  function prevRound() {
+    setRound((r) => (r === 0 ? questions.length - 1 : r - 1));
+    setRevealed([]);
+    setRoundPoints(0);
+    setStrikes(0);
+    setStealMode(false);
+  }
+
   const showAnswer = (i) => revealed.includes(i) || hostMode;
 
   return (
@@ -399,6 +407,7 @@ const PrivacyDuelGame = ({ onGoToMenu }) => {
         </AnimatePresence>
       </div>
       <div className="flex gap-4 mt-8">
+        <button onClick={prevRound} className="px-6 py-3 rounded-xl font-bold" style={{ background: "#3b82f6", boxShadow: "0 8px 0 rgba(0,0,0,0.45)" }}>⬅️ Prev Round</button>
         <button onClick={nextRound} className="px-6 py-3 rounded-xl font-bold" style={{ background: "#f59e0b", boxShadow: "0 8px 0 rgba(0,0,0,0.45)" }}>Next Round ➡️</button>
         <button onClick={onGoToMenu} className="px-6 py-3 rounded-xl font-bold" style={{ background: "#ef4444", color: "#fff", boxShadow: "0 8px 0 rgba(0,0,0,0.45)" }}>
           Back to Menu 🔄
